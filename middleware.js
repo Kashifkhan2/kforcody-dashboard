@@ -5,8 +5,10 @@ export function middleware(request) {
   const myCookie = cookieStore.get("authUser");
   let currentUser = false;
   if (myCookie) {
-    currentUser = myCookie.name == "authUser" && myCookie.value == "true";
+    currentUser = myCookie.name == "authUser" && myCookie.value == "true" ? true : false;
   }
+
+  console.log(currentUser);
   // const currentUser = false;
   // console.log("Running....");
 
