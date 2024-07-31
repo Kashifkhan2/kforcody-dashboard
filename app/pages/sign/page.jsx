@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
-import { toast } from "react-toastify";
 
 const Sign = () => {
   const cookies = useCookies();
