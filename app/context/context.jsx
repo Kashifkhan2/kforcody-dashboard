@@ -74,16 +74,6 @@ const StateProvider = (props) => {
     return jsonData;
   };
 
-  const addUser = async (email, password) => {
-    const data = await fetch(`/api/users`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const jsonData = await data.json();
-    return jsonData;
-  };
-
   const getCodingCategory = async () => {
     const data = await fetch(`https://kforcody.vercel.app/apis/category`);
     return data.json();
