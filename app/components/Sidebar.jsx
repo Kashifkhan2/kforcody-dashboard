@@ -73,12 +73,12 @@ const Sidebar = ({ children }) => {
             >
               <MessageSquareMore size={24} />
             </Link>
-            <button
+            {/* <button
               onClick={Logout}
               className="rounded-lg p-1.5 text-gray-200 transition-colors duration-200 hover:bg-gray-600 focus:outline-none"
             >
               <LogOutIcon size={24} />
-            </button>
+            </button> */}
           </nav>
         </aside>
         <main className="ml-20">{children}</main>

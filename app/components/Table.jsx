@@ -11,7 +11,7 @@ const Table = ({ deleteUser, users, datatype }) => {
             <h1 className="text-white text-center my-16 text-3xl">No Data</h1>
           ) : (
             <table className="w-full">
-              <thead className="bg-gray-50 border-b-2 border-gray-200">
+              <thead className="bg-gray-500 border-b-2 border-gray-200">
                 <tr>
                   <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                     No.
@@ -33,7 +33,7 @@ const Table = ({ deleteUser, users, datatype }) => {
               <tbody className="divide-y divide-gray-100">
                 {users.map((elem, index) => {
                   return (
-                    <tr key={index} className="bg-white">
+                    <tr key={index} className="bg-gray-400">
                       <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                         <a
                           href="#"
