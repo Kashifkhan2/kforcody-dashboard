@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import { useGlobalContext } from "@/app/context/context";
 import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
+import { toast } from "react-toastify";
 
 const Sign = () => {
   const cookies = useCookies();
@@ -9,22 +11,28 @@ const Sign = () => {
   const [cred, setCred] = useState({ email: "", pass: "" });
   const [show, setShow] = useState(true);
   const [loading, setLoading] = useState(false);
+  const { addUser } = useGlobalContext();
 
   const dbData = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const data = await fetch(`/api/users`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: cred.email, password: cred.pass }),
-    });
-    const jsonData = await data.json();
-    if (jsonData.status && jsonData.status == 200) {
-      cookies.set("authUser", "true");
+    const data = await addUser(cred.email, cred.pass);
+    if (data.success) {
+      cookies.set("authUser", data.token);
       push("/");
     } else {
       setLoading(false);
-      alert("Wrong Credntials");
+      toast.error("Sorry Sign up with correct credentials", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        className: "text-sm",
+      });
     }
   };
 

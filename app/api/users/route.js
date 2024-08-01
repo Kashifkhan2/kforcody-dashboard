@@ -22,15 +22,15 @@ export async function POST(request) {
 
     const user = await Admin.findOne({ email });
     if (!user) {
-      return NextResponse.json({ MSG: "Invalid Credentials", status: 500 });
+      return NextResponse.json({ MSG: "Invalid Credentials", success });
     }
     if (user.email == email && user.password == password) {
       let token = jwt.sign({ email }, secretKey);
-      return NextResponse.json({ MSG: "Success", token, status: 200 });
+      return NextResponse.json({ MSG: "Success", token, success: !success });
     }
 
-    return NextResponse.json({ MSG: "Unsuccess", success, status: 500 });
+    return NextResponse.json({ MSG: "Unsuccess", success });
   } catch (err) {
-    return NextResponse.json({ error: err.message, status: 500 });
+    return NextResponse.json({ error: err.message, success });
   }
 }

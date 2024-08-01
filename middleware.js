@@ -2,13 +2,7 @@ import { cookies } from "next/headers";
 
 export function middleware(request) {
   const cookieStore = cookies();
-  const myCookie = cookieStore.get("authUser");
-  let currentUser = false;
-  if (myCookie) {
-    currentUser = myCookie.name == "authUser" && myCookie.value == "true" ? true : false;
-  }
-
-  console.log(currentUser);
+  const myCookie = cookieStore.get("authUser")?.value;
   // const currentUser = false;
   // console.log("Running....");
 
@@ -20,40 +14,40 @@ export function middleware(request) {
   // // const currentUser = localStorage.getItem("userToken");
   // console.log(request.url);
 
-  if (!currentUser && request.nextUrl.pathname == "/") {
+  if (!myCookie && request.nextUrl.pathname == "/") {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/addcategory")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/codeitem")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/addcodeitem")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/downloads/")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/msges")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    !currentUser &&
+    !myCookie &&
     request.nextUrl.pathname.startsWith("/pages/users")
   ) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
-    currentUser &&
+    myCookie &&
     request.nextUrl.pathname.startsWith("/pages/sign")
   ) {
     return Response.redirect(new URL("/", request.url));
