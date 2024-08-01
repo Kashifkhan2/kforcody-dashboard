@@ -19,12 +19,7 @@ const Sign = () => {
     const data = await addUser(cred.email, cred.pass);
     if (data.success) {
       cookies.set("authUser", data.token);
-      console.log(data.success);
-      console.log(typeof data.success);
-      setTimeout(() => {
-        console.log("Done");
-        push("/");
-      }, 5000);
+      push("/");
     } else {
       setLoading(false);
       toast.error("Sorry Sign up with correct credentials", {
@@ -47,7 +42,7 @@ const Sign = () => {
 
   return (
     <div className="pt-[110px] relative">
-      <div className="container flex-col flex h-screen">
+      <div className="container flex-col flex">
         <div className="w-[95%] md:w-full max-w-xs m-auto bg-indigo-200 rounded p-5">
           <header>
             <img className="w-20 mx-auto mb-5" src="/logo.svg" />
