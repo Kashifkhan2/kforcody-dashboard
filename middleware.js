@@ -4,7 +4,7 @@ export function middleware(request) {
   const cookieStore = cookies();
   const myCookie = cookieStore.get("authUser")?.value;
 
-  if (!myCookie && request.nextUrl.pathname == "/") {
+  if (!myCookie && request.nextUrl.pathname.startsWith("/")) {
     return Response.redirect(new URL("/pages/sign", request.url));
   } else if (
     !myCookie &&
