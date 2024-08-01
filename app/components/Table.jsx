@@ -11,7 +11,7 @@ const Table = ({ deleteUser, users, datatype }) => {
             <h1 className="text-white text-center my-16 text-3xl">No Data</h1>
           ) : (
             <table className="w-full">
-              <thead className="bg-gray-500 border-b-2 border-gray-200">
+              <thead className="bg-gray-500 text-white border-b-2 border-gray-300">
                 <tr>
                   <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                     No.
@@ -30,11 +30,11 @@ const Table = ({ deleteUser, users, datatype }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-gray-300">
                 {users.map((elem, index) => {
                   return (
                     <tr key={index} className="bg-gray-400">
-                      <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <td className="p-3 text-sm whitespace-nowrap">
                         <a
                           href="#"
                           className="font-bold text-blue-500 hover:underline"
@@ -42,20 +42,20 @@ const Table = ({ deleteUser, users, datatype }) => {
                           {index + 1}
                         </a>
                       </td>
-                      <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <td className="p-3 text-sm text-gray-100 whitespace-nowrap">
                         {elem.username}
                       </td>
-                      <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <td className="p-3 text-sm text-gray-100 whitespace-nowrap">
                         <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
                           {elem.email}
                         </span>
                       </td>
-                      <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <td className="p-3 text-sm text-gray-100 whitespace-nowrap">
                         <span className="p-1.5 text-xs font-medium uppercase tracking-wider rounded-lg bg-opacity-50">
                           {elem.date}
                         </span>
                       </td>
-                      <td className="p-3 text-sm text-gray-700 flex gap-3">
+                      <td className="p-3 text-sm text-gray-100 flex gap-3">
                         <span
                           onClick={() => {
                             deleteUser(elem._id);
@@ -93,13 +93,13 @@ const Table = ({ deleteUser, users, datatype }) => {
                       </a>
                     </div>
                   </div>
-                  <div className="text-sm p-1 text-gray-700">
+                  <div className="text-sm p-1 text-gray-100">
                     {elem.username}
                   </div>
-                  <div className="text-sm text-gray-700 bg-green-100 p-1 rounded-md text-wrap break-words">
+                  <div className="text-sm text-gray-100 bg-green-100 p-1 rounded-md text-wrap break-words">
                     {elem.email}
                   </div>
-                  <div className="text-sm p-1 text-gray-700">{elem.date}</div>
+                  <div className="text-sm p-1 text-gray-100">{elem.date}</div>
                   <div className="text-sm p-1 font-medium text-black">
                     <span
                       onClick={() => {
