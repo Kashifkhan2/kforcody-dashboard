@@ -11,7 +11,7 @@ const MsgTable = ({ deleteUser, msgs, opti }) => {
             <h1 className="text-white text-center my-16 text-3xl">No Data</h1>
           ) : (
             <table className="w-full">
-              <thead className="bg-gray-500 text-white border-b-2 border-gray-300">
+              <thead className="bg-gray-700 text-white border-b-2 border-gray-700">
                 <tr>
                   <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                     No.
@@ -27,11 +27,11 @@ const MsgTable = ({ deleteUser, msgs, opti }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-300">
+              <tbody className="divide-y divide-gray-500">
                 {msgs.map((elem, index) => {
                   return (
-                    <tr key={index} className="bg-gray-400">
-                      <td className="p-3 text-sm text-gray-300 whitespace-nowrap">
+                    <tr key={index} className="bg-gray-600">
+                      <td className="p-3 text-sm whitespace-nowrap">
                         <a
                           href="#"
                           className="font-bold text-blue-500 hover:underline"
@@ -39,13 +39,13 @@ const MsgTable = ({ deleteUser, msgs, opti }) => {
                           {index + 1}
                         </a>
                       </td>
-                      <td className="p-3 text-sm text-gray-300 whitespace-nowrap">
+                      <td className="p-3 text-sm text-white whitespace-nowrap">
                         {elem.name}
                       </td>
-                      <td className="p-3 text-sm text-gray-300 whitespace-nowrap">
+                      <td className="p-3 text-sm text-white whitespace-nowrap">
                         {elem.msg}
                       </td>
-                      <td className="p-3 text-sm text-gray-300 flex gap-3">
+                      <td className="p-3 text-sm text-white flex gap-3">
                         <span
                           onClick={() => {
                             deleteUser(elem._id);
@@ -91,13 +91,11 @@ const MsgTable = ({ deleteUser, msgs, opti }) => {
                       </a>
                     </div>
                   </div>
-                  <div className="text-sm p-1 text-gray-300">
-                    {elem.username}
-                  </div>
-                  <div className="text-sm text-gray-300 bg-green-100 p-1 rounded-md text-wrap break-words">
+                  <div className="text-sm p-1 text-white">{elem.username}</div>
+                  <div className="text-sm text-white bg-green-100 p-1 rounded-md text-wrap break-words">
                     {elem.email}
                   </div>
-                  <div className="text-sm p-1 text-gray-300">{elem.date}</div>
+                  <div className="text-sm p-1 text-white">{elem.date}</div>
                   <div className="text-sm flex gap-3 p-1 font-medium text-black">
                     <span
                       onClick={() => {
