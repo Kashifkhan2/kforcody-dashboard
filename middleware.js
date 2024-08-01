@@ -1,5 +1,5 @@
 export function middleware(request) {
-  const currentUser = request.cookies.get('authUser').value
+  const currentUser = request.cookies.get('authUser')?.value
 
   if (!currentUser && request.nextUrl.pathname == "/") {
     return Response.redirect(new URL("/pages/sign", request.url));
