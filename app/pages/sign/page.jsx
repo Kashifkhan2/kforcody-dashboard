@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useGlobalContext } from "@/app/context/context";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import { toast } from "react-toastify";
 
@@ -19,6 +19,8 @@ const Sign = () => {
     const data = await addUser(cred.email, cred.pass);
     if (data.success) {
       cookies.set("authUser", data.token);
+      console.log(data.success);
+      console.log(typeof data.success);
       push("/");
     } else {
       setLoading(false);
