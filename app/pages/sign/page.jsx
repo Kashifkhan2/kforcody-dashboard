@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useGlobalContext } from "@/app/context/context";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import { toast } from "react-toastify";
 
