@@ -3,16 +3,6 @@ import { cookies } from "next/headers";
 export function middleware(request) {
   const cookieStore = cookies();
   const myCookie = cookieStore.get("authUser")?.value;
-  // const currentUser = false;
-  // console.log("Running....");
-
-  // Get All Cookies
-  // const myCookies = cookieStore.getAll("authUser");
-  // console.log(myCookie, myCookies);
-  // console.log(myCookie);
-  // console.log(currentUser);
-  // // const currentUser = localStorage.getItem("userToken");
-  // console.log(request.url);
 
   if (!myCookie && request.nextUrl.pathname == "/") {
     return Response.redirect(new URL("/pages/sign", request.url));

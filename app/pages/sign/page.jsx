@@ -21,7 +21,10 @@ const Sign = () => {
       cookies.set("authUser", data.token);
       console.log(data.success);
       console.log(typeof data.success);
-      push("/");
+      setTimeout(() => {
+        console.log("Done");
+        push("/");
+      }, 5000);
     } else {
       setLoading(false);
       toast.error("Sorry Sign up with correct credentials", {
